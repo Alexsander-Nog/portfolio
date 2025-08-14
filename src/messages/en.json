@@ -1,6 +1,3 @@
 {
-  "nav.home": "Home",
-  "nav.projects": "Projects",
-  "nav.experience": "Experience",
-  "nav.contact": "Contact"
+  "nav": { "projects": "Projects", "experience": "Experience", "contact": "Contact" }
 }

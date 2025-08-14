@@ -1,6 +1,3 @@
 {
-  "nav.home": "Início",
-  "nav.projects": "Projetos",
-  "nav.experience": "Experiência",
-  "nav.contact": "Contato"
+  "nav": { "projects": "Projetos", "experience": "Experiência", "contact": "Contato" }
 }

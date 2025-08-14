@@ -44,7 +44,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -116,7 +116,40 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    /* rolagem suave para âncoras (Projects, Experience, Contact) */
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground;
+    /* suavização de fonte consistente */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* seleção de texto sutil (segue sua paleta) */
+  ::selection {
+    background: oklch(0.8 0.08 280 / 0.9);
+    color: oklch(0.145 0 0);
+  }
+
+  /* reset leve para links/focus */
+  a {
+    text-decoration: none;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* títulos com leve tracking para ficar “clean” */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.01em;
   }
 }

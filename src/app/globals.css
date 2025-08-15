@@ -484,4 +484,17 @@
     border: 1px solid var(--border);
     background: color-mix(in oklch, var(--background) 92%, transparent);
   }
+
+  /* ===== Botão de contato (ghost) com contraste bom no dark/light ===== */
+  .contact-btn {
+    background: color-mix(in oklch, var(--background) 94%, transparent);
+    border-color: color-mix(in oklch, var(--foreground) 12%, transparent);
+    color: var(--foreground);
+  }
+  .contact-btn:hover {
+    border-color: color-mix(in oklch, var(--foreground) 20%, transparent);
+  }
+  .contact-btn:active {
+    transform: translateY(1px);
+  }
 }

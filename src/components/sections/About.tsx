@@ -34,8 +34,11 @@ export function About() {
                 "Ownership & pragmatism",
                 "UX & quality focus",
                 "Design/PM collaboration",
-                "Fast learner",
+                "Fast learner & adaptable",
                 "Consistent delivery",
+                "Strategic Vision & Planning",
+                "Problem solver & critical thinker",
+                "Agile mindset & practices",
               ].map((item) => (
                 <li key={item} className="chip chip--interactive">
                   {item}
@@ -57,7 +60,7 @@ export function About() {
                 <span aria-hidden className="edu-glow" />
                 <div className="flex items-center justify-between gap-3">
                   <p className="font-medium">B.S. in Computer Science — UCB</p>
-                  <span className="text-foreground/60 text-xs">Jan/2019–Jul/2025</span>
+                  <span className="text-foreground/60 text-xs">Jan 2019 – Jul 2025</span>
                 </div>
                 <p className="text-foreground/75 mt-1 text-sm">
                   Strong foundations in CS, data structures, networking and software engineering.
@@ -71,7 +74,7 @@ export function About() {
                 <span aria-hidden className="edu-glow" />
                 <div className="flex items-center justify-between gap-3">
                   <p className="font-medium">Apple Developer Academy</p>
-                  <span className="text-foreground/60 text-xs">Mar/2021–Dec/2022</span>
+                  <span className="text-foreground/60 text-xs">Mar 2021 – Dec 2022</span>
                 </div>
                 <p className="text-foreground/75 mt-1 text-sm">
                   Apple platforms development: Swift, SwiftUI, UIKit; product thinking and App Store
@@ -88,7 +91,7 @@ export function About() {
                   <p className="font-medium">
                     Postgrad: Innovation & Digital Transformation — Gran College
                   </p>
-                  <span className="text-foreground/60 text-xs">Jan/2023–Sep/2025</span>
+                  <span className="text-foreground/60 text-xs">Jan 2023 – Sep 2025</span>
                 </div>
                 <p className="text-foreground/75 mt-1 text-sm">
                   Digital strategy, product and business — bridging technology with real impact.

@@ -1,3 +1,8 @@
 {
-  "nav": { "projects": "Projetos", "experience": "Experiência", "contact": "Contato" }
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  }
 }

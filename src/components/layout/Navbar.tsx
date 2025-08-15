@@ -20,13 +20,14 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo / Brand (locale-aware) */}
         <Link href={`/${locale}`} className="font-semibold tracking-tight" aria-label="Home">
-          Doug<span className="text-pink-500">.</span>dev
+          Douglas<span className="text-pink-500">.</span>figueirôa
         </Link>
 
         {/* Links (desktop) */}
         <nav className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="gap-2">
+              <NavItem href="#about" label={t("about")} />
               <NavItem href="#projects" label={t("projects")} />
               <NavItem href="#experience" label={t("experience")} />
               <NavItem href="#contact" label={t("contact")} />

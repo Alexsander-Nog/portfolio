@@ -23,7 +23,12 @@ export function Hero() {
     setTilt({ x: nx * 10, y: ny * 10 });
   }
 
-  const chips = ["Open to US remote", "GMT‑3", "5+ yrs", "iOS • Swift • SwiftUI • Next.js • +"];
+  const chips = [
+    "Open to US remote/on-site",
+    "GMT‑3 / UTC-3",
+    "5+ yrs",
+    "iOS • Swift • SwiftUI • Next.js • +",
+  ];
 
   return (
     <section
@@ -82,7 +87,13 @@ export function Hero() {
 
             <Button asChild variant="outline" size="lg" className="btn-fx">
               <Link href="/resume/DouglasFigueiroa_Developer.pdf" target="_blank">
-                Download Resume
+                Download Resume/EN
+              </Link>
+            </Button>
+
+            <Button asChild variant="outline" size="lg" className="btn-fx">
+              <Link href="/resume/DouglasFigueiroa_Desenvolvedor.pdf" target="_blank">
+                Download Resume/PT
               </Link>
             </Button>
           </div>

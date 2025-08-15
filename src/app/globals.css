@@ -261,4 +261,141 @@
       transition: none;
     }
   }
+
+  /* ===== Interactive chips (About) ===== */
+  .chip--interactive {
+    transition:
+      transform 0.18s ease,
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease,
+      box-shadow 0.18s ease;
+    will-change: transform;
+  }
+  .chip--interactive:hover {
+    transform: translateY(-2px);
+    background: color-mix(in oklch, var(--foreground) 10%, transparent);
+    border-color: color-mix(in oklch, var(--foreground) 18%, transparent);
+    box-shadow: 0 6px 18px oklch(0.15 0 0 / 0.35);
+  }
+  .chip--interactive:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px oklch(0.15 0 0 / 0.35);
+  }
+  .chip--interactive:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  /* ===== Education cards hover/focus ===== */
+  .edu-card {
+    position: relative;
+    border: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent);
+    background: color-mix(in oklch, var(--foreground) 3%, transparent);
+    border-radius: 1rem; /* 16px */
+    padding: 1rem; /* 16px */
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      border-color 0.22s ease,
+      background-color 0.22s ease;
+    will-change: transform;
+  }
+  .edu-card:hover,
+  .edu-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklch, var(--foreground) 20%, transparent);
+    background: color-mix(in oklch, var(--foreground) 5.5%, transparent);
+    box-shadow:
+      0 18px 48px oklch(0.15 0 0 / 0.45),
+      0 2px 8px oklch(0.15 0 0 / 0.25);
+    outline: none;
+  }
+
+  /* radial glow behind the card */
+  .edu-glow {
+    position: absolute;
+    inset: -1px; /* covers the border */
+    border-radius: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity 0.22s ease,
+      filter 0.22s ease;
+    background:
+      radial-gradient(80% 60% at 30% 0%, oklch(0.72 0.08 320 / 0.18), transparent 65%),
+      radial-gradient(70% 50% at 100% 0%, oklch(0.7 0.07 245 / 0.16), transparent 65%);
+    filter: blur(6px);
+    z-index: -1;
+  }
+  .edu-card:hover .edu-glow,
+  .edu-card:focus-visible .edu-glow {
+    opacity: 1;
+    filter: blur(10px);
+  }
+
+  /* motion‑safety */
+  @media (prefers-reduced-motion: reduce) {
+    .chip--interactive,
+    .edu-card {
+      transition: none;
+    }
+  }
+
+  /* =========================
+   ABOUT – ajustes só no light
+   (no dark tudo permanece igual)
+   ========================= */
+
+  /* reduz um pouco a intensidade dos acentos no light para não “lavar” o fundo */
+  :root:not(.dark) .about-bg .bg-accents {
+    opacity: 0.1;
+  }
+
+  /* mantém a vinheta, mas mais suave no light */
+  :root:not(.dark) .about-bg .bg-vignette {
+    opacity: 0.65;
+  }
+
+  /* overlay de contraste focado na coluna esquerda (texto) – apenas light */
+  :root:not(.dark) .about-contrast {
+    /* duas camadas: uma radial escurecendo a coluna do texto e uma vinheta vertical */
+    background:
+      radial-gradient(850px 520px at 28% 32%, oklch(0.2 0 0 / 0.18) 0%, transparent 60%),
+      linear-gradient(to bottom, transparent 0%, oklch(0.2 0 0 / 0.16) 75%, transparent 100%);
+    mix-blend-mode: multiply; /* não afeta o dark */
+    pointer-events: none;
+  }
+
+  /* ===== Education cards (light) – mais “cartão” e com sombra suave ===== */
+  :root:not(.dark) .edu-card {
+    border-color: oklch(0.92 0 0);
+    background: oklch(1 0 0 / 0.9); /* branco levemente translúcido */
+    box-shadow:
+      0 10px 28px oklch(0.25 0 0 / 0.08),
+      0 2px 6px oklch(0.25 0 0 / 0.06);
+  }
+  :root:not(.dark) .edu-card:hover,
+  :root:not(.dark) .edu-card:focus-visible {
+    border-color: oklch(0.88 0 0);
+    background: oklch(1 0 0 / 0.96);
+    box-shadow:
+      0 18px 48px oklch(0.25 0 0 / 0.12),
+      0 4px 10px oklch(0.25 0 0 / 0.08);
+  }
+
+  /* glow por trás do card com o mesmo duo rosa/indigo da Hero, bem sutil no light */
+  :root:not(.dark) .edu-glow {
+    background:
+      radial-gradient(80% 60% at 30% 0%, oklch(0.8 0.1 320 / 0.14), transparent 65%),
+      radial-gradient(70% 50% at 100% 0%, oklch(0.78 0.09 245 / 0.12), transparent 65%);
+    filter: blur(8px);
+  }
+
+  /* ===== Chips interativos (light) – hover mais legível ===== */
+  :root:not(.dark) .chip--interactive:hover {
+    background: color-mix(in oklch, var(--foreground) 6%, transparent);
+    border-color: color-mix(in oklch, var(--foreground) 14%, transparent);
+    box-shadow: 0 8px 20px oklch(0.25 0 0 / 0.08);
+  }
 }

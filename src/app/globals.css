@@ -440,5 +440,48 @@
     filter: blur(10px);
   }
 
-  /* Smooth collapse/expand already handled in component via grid trick */
+  /* ===== Experience cards: elevação suave e glow em hover (dark/light) ===== */
+  .exp-card {
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      border-color 0.22s ease,
+      background-color 0.22s ease;
+    position: relative;
+  }
+  .exp-card:hover,
+  .exp-card:focus-within {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklch, var(--foreground) 18%, transparent);
+    background: color-mix(in oklch, var(--foreground) 5%, transparent);
+    box-shadow:
+      0 16px 40px oklch(0.15 0 0 / 0.4),
+      0 1px 6px oklch(0.15 0 0 / 0.22);
+  }
+  /* ===== Bullets com ponto de acento (rosa-violeta) ===== */
+  .li-dot {
+    position: relative;
+    padding-left: 1.125rem; /* ~18px */
+  }
+  .li-dot::before {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 0.55rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 9999px;
+    background: oklch(0.72 0.18 330 / 0.95); /* rosa/roxo em ambos temas */
+    box-shadow: 0 0 0 2px oklch(0.72 0.18 330 / 0.28);
+  }
+  /* ===== Chip base já usada em outras seções; aqui reforçamos contraste ===== */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: color-mix(in oklch, var(--background) 92%, transparent);
+  }
 }

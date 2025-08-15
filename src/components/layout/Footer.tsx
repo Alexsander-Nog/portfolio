@@ -32,6 +32,13 @@ export function Footer() {
           >
             Instagram
           </Link>
+          <Link
+            href="https://wa.me/61982541672?text=Hello Douglas! I'm Interested in your work. Let's chat!"
+            target="_blank"
+            className="hover:underline"
+          >
+            Whatsapp
+          </Link>
         </div>
       </div>
     </footer>

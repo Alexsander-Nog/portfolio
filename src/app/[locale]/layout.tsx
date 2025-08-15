@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 const SITE = new URL("https://portfolio-mocha-five-s11funmkri.vercel.app");
-const OG_IMAGE = "/og-image.png"; // coloque este arquivo em /public/og-image.png
+const OG_IMAGE = "/og-image.png";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ type LayoutProps = {
 
 export const metadata: Metadata = {
   metadataBase: SITE,
-  // título padrão e template para páginas internas (se você vier a ter)
+  // título padrão e template para páginas internas (se vier a ter)
   title: {
     default: "Douglas Figueirôa – iOS & Full‑Stack Developer",
     template: "%s · Douglas Figueirôa",
@@ -71,7 +71,6 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico?v=2",
-    apple: "/apple-touch-icon.png", // opcional se você adicionar
   },
   robots: {
     index: true,
@@ -123,6 +122,14 @@ export default async function LocaleLayout(props: LayoutProps) {
           type="application/ld+json"
           // vale JSON.stringify, sem risco de XSS porque é objeto local
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <meta
+          name="googlebot"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
       </head>
       <body className="min-h-screen antialiased">

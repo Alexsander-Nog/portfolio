@@ -35,12 +35,14 @@ export default async function LocaleLayout(props: LayoutProps) {
   // habilita render estático sem header dinâmico
   setRequestLocale(locale);
 
+  const messages = (await import(`@/messages/${locale}.json`)).default;
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className="min-h-screen antialiased">
         <ThemeProviders>
           {/* Provider lê as mensagens e timeZone do src/i18n/request.ts */}
-          <NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages} locale={locale}>
             <div className="relative flex min-h-screen flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>

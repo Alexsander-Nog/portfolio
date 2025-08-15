@@ -6,14 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const typeTabs: ProjectType[] = ["All", "iOS", "Web"];
 
 export function Projects() {
+  const t = useTranslations("projects");
   const [type, setType] = useState<"All" | ProjectType>("All");
   const [activeTag, setActiveTag] = useState<string | "All">("All");
-
-  // estados independentes
   const [openLinks, setOpenLinks] = useState<Record<string, boolean>>({});
   const [openDetails, setOpenDetails] = useState<Record<string, boolean>>({});
 
@@ -29,14 +29,10 @@ export function Projects() {
   function toggleDetails(id: string) {
     setOpenDetails((s) => ({ ...s, [id]: !s[id] }));
   }
-
-  // rótulo enxuto para cada URL (domínio sem www)
   function hostLabel(url: string, idx: number) {
     try {
-      const h = new URL(url).hostname.replace(/^www\./, "");
-      return h;
+      return new URL(url).hostname.replace(/^www\./, "");
     } catch {
-      // fallback se vier algo não-URL
       return `Link ${idx + 1}`;
     }
   }
@@ -45,19 +41,19 @@ export function Projects() {
     <section id="projects" className="border-border border-t">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-2xl font-semibold">Projects</h2>
+          <h2 className="text-2xl font-semibold">{t("title")}</h2>
 
           <div className="flex items-center gap-2">
-            {typeTabs.map((t) => (
+            {typeTabs.map((tab) => (
               <button
-                key={t}
-                onClick={() => setType(t)}
+                key={tab}
+                onClick={() => setType(tab)}
                 className={cn(
                   "rounded-full px-3 py-1 text-sm transition-colors",
-                  type === t ? "bg-foreground/10" : "hover:bg-foreground/5"
+                  type === tab ? "bg-foreground/10" : "hover:bg-foreground/5"
                 )}
               >
-                {t}
+                {tab === "All" ? t("tabs.all") : tab === "iOS" ? t("tabs.ios") : t("tabs.web")}
               </button>
             ))}
           </div>
@@ -65,7 +61,8 @@ export function Projects() {
 
         {/* Tag filter */}
         <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-foreground/60 text-xs tracking-wide uppercase">Filter:</span>
+          <span className="text-foreground/60 text-xs tracking-wide uppercase">{t("filter")}</span>
+
           <button
             onClick={() => setActiveTag("All")}
             className={cn(
@@ -73,18 +70,19 @@ export function Projects() {
               activeTag === "All" && "ring-foreground/30 ring-1"
             )}
           >
-            All
+            {t("tabs.all")}
           </button>
-          {allTags.map((t) => (
+
+          {allTags.map((tg) => (
             <button
-              key={t}
-              onClick={() => setActiveTag(t === activeTag ? "All" : t)}
+              key={tg}
+              onClick={() => setActiveTag(tg === activeTag ? "All" : tg)}
               className={cn(
                 "chip chip--interactive",
-                activeTag === t && "ring-foreground/30 ring-1"
+                activeTag === tg && "ring-foreground/30 ring-1"
               )}
             >
-              {t}
+              {t(`tagLabels.${tg}`)}
             </button>
           ))}
         </div>
@@ -93,6 +91,17 @@ export function Projects() {
           {items.map((p) => {
             const linksOpen = !!openLinks[p.id];
             const detailsOpen = !!openDetails[p.id];
+
+            // pega campos traduzidos se existirem
+            const pt = (key: string) => {
+              try {
+                const value = t(`items.${p.id}.${key}`);
+                return value ?? "";
+              } catch {
+                return "";
+              }
+            };
+            const details = (t.raw(`items.${p.id}.details`) as string[] | undefined) ?? p.details;
 
             return (
               <Card
@@ -114,7 +123,7 @@ export function Projects() {
                   <Badge variant="secondary">{p.type}</Badge>
                 </div>
 
-                <p className="text-foreground/80 text-sm">{p.summary}</p>
+                <p className="text-foreground/80 text-sm">{pt("summary")}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {p.stack.map((s) => (
@@ -127,9 +136,9 @@ export function Projects() {
                 {/* actions */}
                 <div className="mt-auto flex items-center justify-between pt-2 text-sm">
                   <div className="flex items-center gap-2">
-                    {p.tags?.map((t) => (
-                      <span key={t} className="chip text-[11px]">
-                        {t}
+                    {p.tags?.map((tg) => (
+                      <span key={tg} className="chip text-[11px]">
+                        {t(`tagLabels.${tg}`)}
                       </span>
                     ))}
                   </div>
@@ -138,11 +147,11 @@ export function Projects() {
                     {/* GitHub link */}
                     {p.links.github && (
                       <Link className="hover:underline" href={p.links.github} target="_blank">
-                        GitHub →
+                        {t("actions.github")}
                       </Link>
                     )}
 
-                    {/* Botão para mostrar/ocultar URLs (quando existirem) */}
+                    {/* Websites link(s) */}
                     {p.links.websites?.length ? (
                       <button
                         onClick={() => toggleLinks(p.id)}
@@ -150,19 +159,19 @@ export function Projects() {
                         aria-expanded={linksOpen}
                         aria-controls={`links-${p.id}`}
                       >
-                        {linksOpen ? "Hide Links" : "Web →"}
+                        {linksOpen ? t("actions.hideLinks") : t("actions.web")}
                       </button>
                     ) : null}
 
-                    {/* Botão More/Less para detalhes SEMPRE que houver details */}
-                    {!!p.details?.length && (
+                    {/* Detalhes extras */}
+                    {!!details?.length && (
                       <button
                         onClick={() => toggleDetails(p.id)}
                         className="text-foreground/80 underline-offset-2 hover:underline"
                         aria-expanded={detailsOpen}
                         aria-controls={`details-${p.id}`}
                       >
-                        {detailsOpen ? "Less" : "More"}
+                        {detailsOpen ? t("actions.less") : t("actions.more")}
                       </button>
                     )}
                   </div>
@@ -195,7 +204,7 @@ export function Projects() {
                 ) : null}
 
                 {/* bloco expansível: detalhes */}
-                {p.details?.length ? (
+                {details?.length ? (
                   <div
                     id={`details-${p.id}`}
                     className={cn(
@@ -204,7 +213,7 @@ export function Projects() {
                     )}
                   >
                     <ul className="text-foreground/75 min-h-0 list-disc space-y-2 pt-2 pl-5 text-sm">
-                      {p.details.map((d, i) => (
+                      {details.map((d, i) => (
                         <li key={i}>{d}</li>
                       ))}
                     </ul>

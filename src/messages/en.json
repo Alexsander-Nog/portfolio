@@ -4,5 +4,258 @@
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact"
+  },
+  "hero": {
+    "kicker": "Portfolio",
+    "title": "iOS & Full‑Stack Developer",
+    "desc": "I craft fast, clean apps and web experiences using Swift, SwiftUI, UIKit, Next.js, React and Firebase.",
+    "chips": [
+      "Open to US remote / on-site",
+      "GMT‑3 / UTC-3",
+      "5+ yrs",
+      "iOS • Swift • SwiftUI • Next.js • +"
+    ],
+    "cta": {
+      "github": "View GitHub",
+      "projects": "See Projects",
+      "resume_en": "Download Resume/EN",
+      "resume_pt": "Download Resume/PT"
+    }
+  },
+  "about": {
+    "kicker": "About",
+    "title": "iOS‑first developer with a solid web foundation",
+    "desc": "Full‑Stack Developer and iOS specialist with <b>5+ years</b> building apps, websites and integrations. Experienced with <b>agile teams</b>, <b>payments</b>, <b>SEO/UX</b> and cross‑functional collaboration. I work primarily across the Apple ecosystem (Swift, SwiftUI, UIKit) and a modern web stack (Next.js, React, TypeScript, Firebase).",
+    "qualsTitle": "Qualifications & behavioral strengths",
+    "quals": [
+      "Clear communication",
+      "Ownership & pragmatism",
+      "UX & quality focus",
+      "Design/PM collaboration",
+      "Fast learner & adaptable",
+      "Consistent delivery",
+      "Strategic Vision & Planning",
+      "Problem solver & critical thinker",
+      "Agile mindset & practices"
+    ],
+    "eduTitle": "Education",
+    "edu": {
+      "ucb": {
+        "title": "B.S. in Computer Science — UCB",
+        "period": "Jan 2019 – Jul 2025",
+        "desc": "Strong foundations in CS, data structures, networking and software engineering."
+      },
+      "academy": {
+        "title": "Apple Developer Academy",
+        "period": "Mar 2021 – Dec 2022",
+        "desc": "Apple platforms development: Swift, SwiftUI, UIKit; product thinking and App Store publishing."
+      },
+      "post": {
+        "title": "Postgrad: Innovation & Digital Transformation — Gran College",
+        "period": "Jan 2023 – Sep 2025",
+        "desc": "Digital strategy, product and business — bridging technology with real impact."
+      }
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "items": {
+      "creativePack": {
+        "role": "iOS Mobile Developer - Contractor",
+        "company": "Creative Pack (Hapvida) - Remote",
+        "period": "Jun 2022 – Jun 2023",
+        "headline": "Shipped health features that improved patient control and doctor monitoring.",
+        "bullets": [
+          "Redesigned key user journeys with the Innovation team, increasing completion rates and reducing friction on critical flows.",
+          "Implemented digital prescription and follow‑up, enabling safer hand‑offs between patients and medical staff."
+        ],
+        "tech": [
+          "Swift",
+          "SwiftUI",
+          "UIKit",
+          "HealthKit",
+          "Combine",
+          "HIG",
+          "MVVM / MVVM-C",
+          "CocoaPods",
+          "Git",
+          "Agile"
+        ]
+      },
+      "academy": {
+        "role": "Apple Platforms Application Developer - Training Program",
+        "company": "Apple Developer Academy - Onsite",
+        "period": "Mar 2021 – Dec 2022",
+        "headline": "Built and shipped multiple Apple‑platform apps (iPhone, iPad, watchOS, tvOS, macOS); strong focus on product and publishing.",
+        "bullets": [
+          "Selected among limited spots; delivered end‑to‑end projects with product thinking and iteration.",
+          "Presented demos and technical talks in PT/EN to Apple staff and mentors.",
+          "Identified problems and proposed solutions via CBL, building Apple platform apps in a five‑person team.",
+          "Published apps on the App Store, including a Swift Student Challenge winner."
+        ],
+        "tech": [
+          "Swift",
+          "SwiftUI",
+          "UIKit",
+          "Xcode",
+          "App Store",
+          "Combine",
+          "RxSwift",
+          "HIG",
+          "Unit Testing",
+          "MVVM / MVVM-C",
+          "VIP / VIPER",
+          "CocoaPods",
+          "Git",
+          "Agile",
+          "CBL",
+          "Design Thinking",
+          "Accessibility",
+          "Localization",
+          "TestFlight",
+          "CoreData",
+          "CoreLocation",
+          "MapKit",
+          "HealthKit",
+          "CoreML"
+        ]
+      },
+      "thifi": {
+        "role": "Manager & Full‑Stack Developer",
+        "company": "ThiFi",
+        "period": "Jan 2025 – Present",
+        "headline": "Led delivery of corporate websites, e‑commerce and dashboards. Combining technology, design, and strategic marketing.",
+        "bullets": [
+          "Built SEO‑friendly websites and internal dashboards using a reusable component system.",
+          "Integrated Google Maps, Instagram and WhatsApp Business; implemented Mercado Pago Transparent Checkout.",
+          "Delivered e‑commerce platforms and web apps with Next.js, React, Tailwind CSS and Firebase.",
+          "Managed a team of 3 developers, ensuring quality and timely delivery.",
+          "Implemented analytics and tracking for performance insights.",
+          "Coordinated multidisciplinary teams using agile methodologies."
+        ],
+        "tech": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind",
+          "Firebase",
+          "Mercado Pago",
+          "Google Maps",
+          "API",
+          "SEO",
+          "Analytics",
+          "Agile"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "filter": "Filter:",
+    "tabs": { "all": "All", "ios": "iOS", "web": "Web" },
+    "actions": {
+      "web": "Web →",
+      "hideLinks": "Hide Links",
+      "more": "More",
+      "less": "Less",
+      "github": "GitHub →"
+    },
+    "tagLabels": {
+      "Games": "Games",
+      "Health": "Health",
+      "Maps": "Maps",
+      "Business": "Business",
+      "Education": "Education"
+    },
+    "items": {
+      "hybris": {
+        "summary": "Casual horror‑themed iPhone game focused on atmosphere and GameCenter integration.",
+        "details": [
+          "Immersive feedback loop with adaptive difficulty.",
+          "Leaderboard and achievements via GameCenter."
+        ]
+      },
+      "stretch-quest": {
+        "summary": "Posture and flexibility app with RPG‑like progression and animations.",
+        "details": [
+          "Gamified routine with streaks and unlockable levels.",
+          "Custom animation system and haptics."
+        ]
+      },
+      "iss-tracker": {
+        "summary": "Track the ISS in real time on a map using Apple frameworks and POP.",
+        "details": [
+          "Live position polling and map annotations.",
+          "Location permissions and background updates."
+        ]
+      },
+      "wwdc22-ssc": {
+        "summary": "Interactive Swift Playgrounds experience submitted to the Swift Student Challenge.",
+        "details": [
+          "Education‑oriented content with interaction patterns.",
+          "Focus on accessibility and clear visual language."
+        ]
+      },
+      "genika": {
+        "summary": "Apple Watch + HealthKit companion to visualize routine and health balance.",
+        "details": [
+          "HealthKit data ingestion and privacy‑aware storage.",
+          "CloudKit sync and minimal Watch interactions."
+        ]
+      },
+      "dizcarta": {
+        "summary": "Co‑op card‑based game encouraging socialization among young people.",
+        "details": ["Offline‑first with CoreData.", "Game balancing and UX for group sessions."]
+      },
+      "beauty-platform": {
+        "summary": "Next.js platform for salons/barbershops with catalog, IG gallery, WhatsApp bookings and Mercado Pago checkout.",
+        "details": [
+          "Serverless functions for booking + notifications.",
+          "SEO‑ready pages and IG media ingestion."
+        ]
+      },
+      "falaubs": {
+        "summary": "Django web app for public health units with smart vaccine search and booking.",
+        "details": [
+          "Search flow optimized for low‑literacy contexts.",
+          "Admin panel and CSV import for schedules."
+        ]
+      },
+      "websites": {
+        "summary": "A collection of responsive websites delivered for multiple clients with strong SEO and performance.",
+        "details": [
+          "Reusable component library and theming.",
+          "Analytics + on‑page SEO best practices."
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Let’s work together",
+    "desc": "Open to remote iOS roles (US) and full‑stack work. Available for interviews, contracts and code reviews. I speak EN/PT and can relocate to the US. Available for full‑time or part‑time positions.",
+    "chips": [
+      "Open to US remote",
+      "GMT‑3 / UTC-3",
+      "English / Português",
+      "Developer",
+      "iOS",
+      "Web",
+      "App"
+    ],
+    "buttons": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved."
   }
 }

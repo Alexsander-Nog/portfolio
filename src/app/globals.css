@@ -398,4 +398,47 @@
     border-color: color-mix(in oklch, var(--foreground) 14%, transparent);
     box-shadow: 0 8px 20px oklch(0.25 0 0 / 0.08);
   }
+
+  /* Project card hover (elevação + glow sutil) */
+  .project-card {
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      border-color 0.22s ease,
+      background-color 0.22s ease;
+    will-change: transform;
+    position: relative;
+  }
+  .project-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 1rem;
+    background:
+      radial-gradient(120% 80% at 20% 0%, oklch(0.72 0.08 320 / 0.14), transparent 60%),
+      radial-gradient(120% 80% at 100% 0%, oklch(0.7 0.07 245 / 0.12), transparent 65%);
+    opacity: 0;
+    transition:
+      opacity 0.22s ease,
+      filter 0.22s ease;
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklch, var(--foreground) 20%, transparent);
+    background: color-mix(in oklch, var(--foreground) 5%, transparent);
+    box-shadow:
+      0 18px 48px oklch(0.15 0 0 / 0.45),
+      0 2px 8px oklch(0.15 0 0 / 0.25);
+  }
+  .project-card:hover::after,
+  .project-card:focus-within::after {
+    opacity: 1;
+    filter: blur(10px);
+  }
+
+  /* Smooth collapse/expand already handled in component via grid trick */
 }

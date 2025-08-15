@@ -1,3 +1,8 @@
 {
-  "nav": { "projects": "Projects", "experience": "Experience", "contact": "Contact" }
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  }
 }

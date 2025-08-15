@@ -24,7 +24,7 @@ export function Contact() {
         <ul className="mt-4 flex flex-wrap gap-2">
           {[
             "Open to US remote",
-            "GMT‑3",
+            "GMT‑3 / UTC-3",
             "English / Português",
             "Developer",
             "iOS",

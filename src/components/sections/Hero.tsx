@@ -24,7 +24,7 @@ export function Hero() {
   }
 
   const chips = [
-    "Open to US remote/on-site",
+    "Open to US remote / on-site",
     "GMT‑3 / UTC-3",
     "5+ yrs",
     "iOS • Swift • SwiftUI • Next.js • +",

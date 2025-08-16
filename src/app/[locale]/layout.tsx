@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import "../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -80,11 +81,13 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  /*
   // opcional: cor da UI do browser
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
   ],
+  */
 };
 
 export function generateStaticParams() {
@@ -146,3 +149,10 @@ export default async function LocaleLayout(props: LayoutProps) {
     </html>
   );
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
+  ],
+};

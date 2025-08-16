@@ -64,7 +64,7 @@ export function Hero() {
           </ul>
 
           <div className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
-            <Button asChild size="lg" className="btn-fx">
+            <Button asChild size="lg" variant="secondary" className="btn-fx">
               <Link href="https://github.com/DouglasiOSDeveloper" target="_blank">
                 {t("cta.github")}
               </Link>

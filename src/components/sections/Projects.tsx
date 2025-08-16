@@ -47,10 +47,13 @@ export function Projects() {
             {typeTabs.map((tab) => (
               <button
                 key={tab}
+                type="button"
                 onClick={() => setType(tab)}
                 className={cn(
-                  "rounded-full px-3 py-1 text-sm transition-colors",
-                  type === tab ? "bg-foreground/10" : "hover:bg-foreground/5"
+                  "text-foreground appearance-none rounded-full px-3 py-1 text-sm leading-none transition-colors",
+                  type === tab
+                    ? "bg-foreground/10 border-foreground/15 border"
+                    : "hover:bg-foreground/5 border-foreground/10 border"
                 )}
               >
                 {tab === "All" ? t("tabs.all") : tab === "iOS" ? t("tabs.ios") : t("tabs.web")}

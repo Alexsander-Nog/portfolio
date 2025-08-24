@@ -8,7 +8,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
-const typeTabs: ProjectType[] = ["All", "iOS", "Web"];
+// Definindo os tipos de tabs para 'All' e 'Web'.
+const typeTabs: ProjectType[] = ["All", "Web"];
 
 export function Projects() {
   const t = useTranslations("projects");
@@ -23,12 +24,13 @@ export function Projects() {
     return list;
   }, [type, activeTag]);
 
-  function toggleLinks(id: string) {
-    setOpenLinks((s) => ({ ...s, [id]: !s[id] }));
+  function toggleState(
+    id: string,
+    stateSetter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>
+  ) {
+    stateSetter((s) => ({ ...s, [id]: !s[id] }));
   }
-  function toggleDetails(id: string) {
-    setOpenDetails((s) => ({ ...s, [id]: !s[id] }));
-  }
+
   function hostLabel(url: string, idx: number) {
     try {
       return new URL(url).hostname.replace(/^www\./, "");
@@ -38,25 +40,37 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="border-border border-t">
-      <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-2xl font-semibold">{t("title")}</h2>
+    <section
+      id="projects"
+      className="relative overflow-hidden border-t border-[#8B0000]/30 bg-[#1a1a1a] text-[#f5f5f5]"
+    >
+      {/* fundo bordô + dourado sutil */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_10%_-10%,rgba(139,0,0,0.2),transparent_60%),radial-gradient(800px_400px_at_90%_-10%,rgba(184,134,11,0.18),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6))]" />
+      </div>
 
+      <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        {/* Header */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-2xl font-semibold text-[#8B0000]">{t("title")}</h2>
+
+          {/* Tabs de tipo */}
           <div className="flex items-center gap-2">
+            {/* O loop agora renderiza apenas 'All' e 'Web' */}
             {typeTabs.map((tab) => (
               <button
                 key={tab}
                 type="button"
                 onClick={() => setType(tab)}
                 className={cn(
-                  "text-foreground appearance-none rounded-full px-3 py-1 text-sm leading-none transition-colors",
+                  "rounded-full border px-3 py-1 text-sm leading-none transition-colors",
                   type === tab
-                    ? "bg-foreground/10 border-foreground/15 border"
-                    : "hover:bg-foreground/5 border-foreground/10 border"
+                    ? "border-[#a52a2a] bg-[#8B0000]/80 text-white"
+                    : "border-[#8B0000]/40 text-gray-300 hover:bg-[#8B0000]/30 hover:text-white"
                 )}
               >
-                {tab === "All" ? t("tabs.all") : tab === "iOS" ? t("tabs.ios") : t("tabs.web")}
+                {t(`tabs.${tab.toLowerCase().replace(" ", "-")}`)}
               </button>
             ))}
           </div>
@@ -64,13 +78,13 @@ export function Projects() {
 
         {/* Tag filter */}
         <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-foreground/60 text-xs tracking-wide uppercase">{t("filter")}</span>
+          <span className="text-xs tracking-wide text-[#e0c097] uppercase">{t("filter")}</span>
 
           <button
             onClick={() => setActiveTag("All")}
             className={cn(
-              "chip chip--interactive",
-              activeTag === "All" && "ring-foreground/30 ring-1"
+              "rounded-full border border-[#8B0000]/40 px-3 py-1 text-sm text-gray-300 transition-colors hover:bg-[#8B0000]/30 hover:text-white",
+              activeTag === "All" && "border-[#a52a2a] bg-[#8B0000]/80 text-white"
             )}
           >
             {t("tabs.all")}
@@ -81,8 +95,8 @@ export function Projects() {
               key={tg}
               onClick={() => setActiveTag(tg === activeTag ? "All" : tg)}
               className={cn(
-                "chip chip--interactive",
-                activeTag === tg && "ring-foreground/30 ring-1"
+                "rounded-full border border-[#8B0000]/40 px-3 py-1 text-sm text-gray-300 transition-colors hover:bg-[#8B0000]/30 hover:text-white",
+                activeTag === tg && "border-[#a52a2a] bg-[#8B0000]/80 text-white"
               )}
             >
               {t(`tagLabels.${tg}`)}
@@ -90,75 +104,81 @@ export function Projects() {
           ))}
         </div>
 
+        {/* Cards */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((p) => {
             const linksOpen = !!openLinks[p.id];
             const detailsOpen = !!openDetails[p.id];
 
-            // pega campos traduzidos se existirem
-            const pt = (key: string) => {
-              try {
-                const value = t(`items.${p.id}.${key}`);
-                return value ?? "";
-              } catch {
-                return "";
-              }
-            };
-            const details = (t.raw(`items.${p.id}.details`) as string[] | undefined) ?? p.details;
+            const rawDetails = t.raw(`items.${p.id}.details`);
+            const details = Array.isArray(rawDetails) ? rawDetails : (p.details ?? []);
 
             return (
               <Card
                 key={p.id}
                 className={cn(
-                  "group border-foreground/10 bg-foreground/[0.03] project-card flex flex-col gap-4 p-4"
+                  "group flex flex-col gap-4 border border-[#8B0000]/40 bg-[#2a2a2a]/70 p-4 transition hover:bg-[#2a2a2a]/90"
                 )}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex min-w-0 flex-col">
-                    <h3 className="truncate text-lg font-semibold">{p.title}</h3>
+                    <h3 className="truncate text-lg font-semibold text-[#f5f5f5]">{p.title}</h3>
                     {p.featured && (
-                      <span className="text-foreground/70 mt-1 inline-flex items-center gap-1 text-xs">
-                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-pink-500" />
+                      <span className="mt-1 inline-flex items-center gap-1 text-xs text-[#e0c097]">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#8B0000]" />
                         {p.featured}
                       </span>
                     )}
                   </div>
-                  <Badge variant="secondary">{p.type}</Badge>
+                  <Badge className="border border-[#e0c097]/40 bg-[#8B0000]/70 text-white">
+                    {p.type}
+                  </Badge>
                 </div>
 
-                <p className="text-foreground/80 text-sm">{pt("summary")}</p>
+                <p className="text-sm text-gray-300">{t(`items.${p.id}.summary`)}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {p.stack.map((s) => (
-                    <Badge key={s} className="border border-[#d17aff]/30 bg-black text-[#d17aff]">
+                    <Badge
+                      key={s}
+                      className="border border-[#e0c097]/30 bg-[#1a1a1a] text-[#e0c097]"
+                    >
                       {s}
                     </Badge>
                   ))}
                 </div>
 
                 {/* actions */}
-                <div className="mt-auto flex items-center justify-between pt-2 text-sm">
-                  <div className="flex items-center gap-2">
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2 text-sm">
+                  {/* tags */}
+                  <div className="flex min-w-0 flex-wrap items-center gap-2">
                     {p.tags?.map((tg) => (
-                      <span key={tg} className="chip text-[11px]">
-                        {t(`tagLabels.${tg}`)}
+                      <span
+                        key={tg}
+                        className="rounded-full bg-[#8B0000]/50 px-2 py-0.5 text-[11px] text-white"
+                      >
+                        {/* 💡 Ajuste aqui para fornecer um valor padrão, caso a tradução não exista */}
+                        {t(`tagLabels.${tg}`, { defaultValue: tg })}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    {/* GitHub link */}
+                  {/* links e ações */}
+                  <div className="flex flex-shrink-0 items-center gap-3">
                     {p.links.github && (
-                      <Link className="hover:underline" href={p.links.github} target="_blank">
+                      <Link
+                        className="flex-shrink-0 text-[#e0c097] hover:underline"
+                        href={p.links.github}
+                        target="_blank"
+                      >
                         {t("actions.github")}
                       </Link>
                     )}
 
-                    {/* Websites link(s) */}
                     {p.links.websites?.length ? (
                       <button
-                        onClick={() => toggleLinks(p.id)}
-                        className="text-foreground/80 underline-offset-2 hover:underline"
+                        onClick={() => toggleState(p.id, setOpenLinks)}
+                        className="flex-shrink-0 text-gray-300 underline-offset-2 hover:text-[#e0c097] hover:underline"
                         aria-expanded={linksOpen}
                         aria-controls={`links-${p.id}`}
                       >
@@ -166,17 +186,16 @@ export function Projects() {
                       </button>
                     ) : null}
 
-                    {/* Detalhes extras */}
-                    {!!details?.length && (
+                    {details.length ? (
                       <button
-                        onClick={() => toggleDetails(p.id)}
-                        className="text-foreground/80 underline-offset-2 hover:underline"
+                        onClick={() => toggleState(p.id, setOpenDetails)}
+                        className="flex-shrink-0 text-gray-300 underline-offset-2 hover:text-[#e0c097] hover:underline"
                         aria-expanded={detailsOpen}
                         aria-controls={`details-${p.id}`}
                       >
                         {detailsOpen ? t("actions.less") : t("actions.more")}
                       </button>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 
@@ -195,7 +214,7 @@ export function Projects() {
                           <Link
                             href={u}
                             target="_blank"
-                            className="chip chip--interactive text-[12px]"
+                            className="rounded-full bg-[#8B0000]/60 px-3 py-1 text-[12px] text-white transition hover:bg-[#a52a2a]"
                             title={u}
                           >
                             {hostLabel(u, i)}
@@ -207,7 +226,7 @@ export function Projects() {
                 ) : null}
 
                 {/* bloco expansível: detalhes */}
-                {details?.length ? (
+                {details.length ? (
                   <div
                     id={`details-${p.id}`}
                     className={cn(
@@ -215,7 +234,7 @@ export function Projects() {
                       detailsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     )}
                   >
-                    <ul className="text-foreground/75 min-h-0 list-disc space-y-2 pt-2 pl-5 text-sm">
+                    <ul className="min-h-0 list-disc space-y-2 pt-2 pl-5 text-sm text-gray-300">
                       {details.map((d, i) => (
                         <li key={i}>{d}</li>
                       ))}

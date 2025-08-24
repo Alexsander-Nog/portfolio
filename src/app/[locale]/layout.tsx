@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 const SITE = new URL("https://portfolio-mocha-five-s11funmkri.vercel.app");
-const OG_IMAGE = "/og-image.png";
+const OG_IMAGE = "https://placehold.co/1200x630/000000/FFFFFF?text=Alexsander+Portfolio";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -22,30 +22,27 @@ export const metadata: Metadata = {
   metadataBase: SITE,
   // título padrão e template para páginas internas (se vier a ter)
   title: {
-    default: "Douglas Figueirôa – iOS & Full‑Stack Developer",
-    template: "%s · Douglas Figueirôa",
+    default: "Alexsander Nogueira De Jesus – Desenvolvedor de Software",
+    template: "%s · Alexsander Nogueira De Jesus",
   },
   description:
-    "iOS & Full‑Stack Developer crafting fast, clean apps and web experiences. Swift, SwiftUI, UIKit, Next.js, React, Firebase.",
+    "Desenvolvedor de Software com experiência em Python, Flask, HTML, Power Apps, C, Java, e MySQL. Construo aplicações web e soluções de automação.",
   keywords: [
-    "iOS developer",
-    "Swift",
-    "SwiftUI",
-    "UIKit",
-    "Apple Developer",
-    "Full‑Stack",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Firebase",
-    "Mobile apps",
-    "Frontend",
-    "Backend",
-    "Portfolio",
+    "Desenvolvedor de Software",
+    "Desenvolvedor backend",
+    "Python",
+    "Flask",
+    "HTML",
+    "Power Apps",
+    "Power Automate",
+    "C",
+    "Java",
+    "MySQL",
+    "Typescript",
   ],
-  authors: [{ name: "Douglas Figueirôa", url: SITE.toString() }],
-  creator: "Douglas Figueirôa",
-  publisher: "Douglas Figueirôa",
+  authors: [{ name: "Alexsander Nogueira De Jesus", url: SITE.toString() }],
+  creator: "Alexsander Nogueira De Jesus",
+  publisher: "Alexsander Nogueira De Jesus",
   category: "Technology",
   alternates: {
     canonical: "/", // Next gera absoluto usando metadataBase
@@ -57,21 +54,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "Douglas Figueirôa Portfolio",
-    title: "Douglas Figueirôa – iOS & Full‑Stack Developer",
-    description: "iOS & Full‑Stack Developer crafting fast, clean apps and web experiences.",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Douglas Figueirôa" }],
-    locale: "en_US",
+    siteName: "Alexsander Nogueira De Jesus Portfólio",
+    title: "Alexsander Nogueira De Jesus – Desenvolvedor de Software",
+    description:
+      "Construo aplicações web eficientes e soluções de automação usando Python, Flask, HTML, Power Apps, C, Java, e MySQL.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Alexsander Nogueira De Jesus" }],
+    locale: "pt_BR",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@", // se um dia tiver @ no X/Twitter, coloque aqui
-    title: "Douglas Figueirôa – iOS & Full‑Stack Developer",
-    description: "iOS & Full‑Stack Developer crafting fast, clean apps and web experiences.",
+    site: "@",
+    title: "Alexsander Nogueira De Jesus – Desenvolvedor de Software",
+    description:
+      "Desenvolvedor de Software com experiência em Python, Flask, HTML, Power Apps, C, Java, e MySQL.",
     images: [OG_IMAGE],
   },
   icons: {
-    icon: "/favicon.ico?v=2",
+    icon: "/favicon.ico",
   },
   robots: {
     index: true,
@@ -105,16 +104,15 @@ export default async function LocaleLayout(props: LayoutProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Douglas Figueirôa",
+    name: "Alexsander Nogueira De Jesus",
     url: SITE.toString(),
-    jobTitle: "iOS & Full‑Stack Developer",
+    jobTitle: "Desenvolvedor de Software",
     image: `${SITE.origin}${OG_IMAGE}`,
     sameAs: [
-      "https://github.com/DouglasiOSDeveloper",
-      "https://linkedin.com/in/douglas-figueirôa-1ba2541bb",
-      "https://www.instagram.com/douglas.figueiroa/",
+      "https://github.com/AlexsanderTG",
+      // Adicione aqui outros links, como LinkedIn e Instagram
     ],
-    knowsAbout: ["Swift", "SwiftUI", "UIKit", "iOS", "Next.js", "React", "TypeScript", "Firebase"],
+    knowsAbout: ["Python", "Flask", "HTML", "Power Apps", "Power Automate", "C", "Java", "MySQL"],
   };
 
   return (

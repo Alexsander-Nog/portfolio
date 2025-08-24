@@ -16,11 +16,17 @@ export function Navbar() {
   const locale = useLocale(); // "en" | "pt"
 
   return (
-    <header className="border-border bg-background/70 sticky top-0 z-50 border-b backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#a52a2a] bg-[#1a1a1a]/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo / Brand (locale-aware) */}
-        <Link href={`/${locale}`} className="font-semibold tracking-tight" aria-label="Home">
-          Douglas<span className="text-pink-500">.</span>figueirôa
+        <Link
+          href={`/${locale}`}
+          className="font-semibold tracking-tight text-[#f5f5f5]"
+          aria-label="Home"
+        >
+          Alexsander
+          <span className="text-[#e0c097]">.</span>
+          Nogueira
         </Link>
 
         {/* Links (desktop) */}
@@ -40,10 +46,10 @@ export function Navbar() {
           <LanguageSwitch />
           <ThemeToggle />
           <Link
-            href="https://github.com/DouglasiOSDeveloper"
+            href="https://github.com/AlexsanderTG"
             target="_blank"
             prefetch={false}
-            className="border-border hover:bg-foreground/5 rounded-xl border px-3 py-1 text-sm"
+            className="rounded-xl border border-[#a52a2a] px-3 py-1 text-sm text-[#f5f5f5] transition-colors hover:bg-[#a52a2a] hover:text-[#f5f5f5]"
             aria-label="GitHub"
           >
             GitHub
@@ -60,8 +66,8 @@ function NavItem({ href, label }: { href: string; label: string }) {
       <Link
         href={href}
         className={cn(
-          "text-foreground/80 rounded-xl px-3 py-2 text-sm",
-          "hover:bg-foreground/5 hover:text-foreground transition-colors"
+          "rounded-xl px-3 py-2 text-sm text-[#f5f5f5] transition-colors",
+          "hover:bg-[#a52a2a] hover:text-[#f5f5f5]"
         )}
       >
         {label}

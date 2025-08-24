@@ -5,38 +5,45 @@ export function About() {
   const quals = t.raw("quals") as string[];
 
   return (
-    <section id="about" className="border-border relative overflow-hidden border-t">
-      <div className="about-bg pointer-events-none absolute inset-0 -z-10">
-        <div className="bg-accents absolute inset-0 bg-[radial-gradient(1000px_500px_at_15%_-10%,oklch(0.67_0.13_320/.18),transparent_60%),radial-gradient(900px_500px_at_85%_-20%,oklch(0.65_0.12_250/.16),transparent_55%)]" />
-        <div className="bg-vignette absolute inset-0 bg-[linear-gradient(to_bottom,transparent,oklch(0.145_0_0/.6))]" />
-        <div className="about-contrast absolute inset-0" />
+    <section
+      id="about"
+      className="relative overflow-hidden border-t border-[#8B0000]/30 bg-[#1a1a1a] text-[#f5f5f5]"
+    >
+      {/* Fundo com bordô e dourado suave */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_15%_-10%,rgba(139,0,0,0.2),transparent_60%),radial-gradient(900px_500px_at_85%_-20%,rgba(184,134,11,0.18),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6))]" />
+        <div className="absolute inset-0" />
       </div>
 
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:gap-14 md:py-20">
         {/* Intro */}
         <div className="animate-in fade-in slide-in-from-left-2 duration-700">
-          <span className="text-foreground/60 text-[11px] tracking-[0.25em] uppercase">
+          <span className="text-[11px] tracking-[0.25em] text-[#e0c097] uppercase">
             {t("kicker")}
           </span>
 
-          <h2 className="mt-3 text-3xl leading-tight font-semibold md:text-4xl">{t("title")}</h2>
+          <h2 className="mt-3 text-3xl leading-tight font-semibold text-[#8B0000] md:text-4xl">
+            {t("title")}
+          </h2>
 
-          {/* >>> FIX: usar t.rich ao invés de dangerouslySetInnerHTML <<< */}
-          <p className="text-foreground/80 mt-4 md:max-w-[58ch]">
+          <p className="mt-4 text-gray-300 md:max-w-[58ch]">
             {t.rich("desc", {
-              // Você pode estilizar o <b> aqui se quiser
-              b: (chunks) => <b className="font-semibold">{chunks}</b>,
+              b: (chunks) => <b className="font-semibold text-[#e0c097]">{chunks}</b>,
             })}
           </p>
 
           {/* Soft skills / qualifications */}
           <div className="mt-6">
-            <h3 className="text-foreground/70 mb-3 text-sm font-medium tracking-wide">
+            <h3 className="mb-3 text-sm font-medium tracking-wide text-gray-400">
               {t("qualsTitle")}
             </h3>
             <ul className="flex flex-wrap gap-2">
               {quals.map((item) => (
-                <li key={item} className="chip chip--interactive">
+                <li
+                  key={item}
+                  className="rounded-full border border-[#a52a2a]/40 bg-[#8B0000]/80 px-3 py-1 text-sm text-white transition-colors hover:bg-[#a52a2a]"
+                >
                   {item}
                 </li>
               ))}
@@ -46,21 +53,26 @@ export function About() {
 
         {/* Education */}
         <div className="animate-in fade-in slide-in-from-right-2 duration-700">
-          <h3 className="text-foreground/70 mb-4 text-sm font-medium tracking-wide">
-            {t("eduTitle")}
-          </h3>
+          <h3 className="mb-4 text-sm font-medium tracking-wide text-gray-400">{t("eduTitle")}</h3>
 
-          <ol className="border-foreground/10 relative ms-3 border-s ps-6">
+          <ol className="relative ms-3 border-s border-[#8B0000]/40 ps-6">
             {(["ucb", "academy", "post"] as const).map((k) => (
-              <li key={k} className="timeline-item">
-                <div className="timeline-dot" />
-                <article tabIndex={0} className="edu-card group">
-                  <span aria-hidden className="edu-glow" />
+              <li key={k} className="timeline-item mb-6">
+                {/* Pontinho da timeline */}
+                <div className="absolute -ms-[11px] mt-2 h-3 w-3 rounded-full border border-[#e0c097]/60 bg-[#8B0000] shadow-[0_0_10px_#8B0000]" />
+                <article
+                  tabIndex={0}
+                  className="relative rounded-lg border border-[#8B0000]/30 bg-[#2a2a2a]/70 p-4 transition hover:bg-[#2a2a2a]/90"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 rounded-lg bg-[radial-gradient(circle_at_top_left,rgba(139,0,0,0.25),transparent_70%)] opacity-0 transition group-hover:opacity-100"
+                  />
                   <div className="flex items-center justify-between gap-3">
-                    <p className="font-medium">{t(`edu.${k}.title`)}</p>
-                    <span className="text-foreground/60 text-xs">{t(`edu.${k}.period`)}</span>
+                    <p className="font-medium text-[#f5f5f5]">{t(`edu.${k}.title`)}</p>
+                    <span className="text-xs text-gray-400">{t(`edu.${k}.period`)}</span>
                   </div>
-                  <p className="text-foreground/75 mt-1 text-sm">{t(`edu.${k}.desc`)}</p>
+                  <p className="mt-1 text-sm text-gray-300">{t(`edu.${k}.desc`)}</p>
                 </article>
               </li>
             ))}

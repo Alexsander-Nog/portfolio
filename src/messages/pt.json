@@ -7,13 +7,13 @@
   },
   "hero": {
     "kicker": "Portfólio",
-    "title": "Desenvolvedor iOS & Full‑Stack",
-    "desc": "Crio apps e experiências web rápidas e limpas usando Swift, SwiftUI, UIKit, Next.js, React e Firebase.",
+    "title": "Desenvolvedor Full Stack Júnior",
+    "desc": "Desenvolvedor de software com foco em soluções web completas e automação de processos. Experiência em Python (Flask), JavaScript (Next.js, React), além de Power Apps, Power Automate e MySQL.",
     "chips": [
-      "Aberto a remoto / presencial nos EUA",
-      "GMT‑3 / UTC-3",
-      "5+ anos",
-      "iOS • Swift • SwiftUI • Next.js • +"
+      "Brasília/DF • Aberto a oportunidades",
+      "Disponível para viagens e remoto",
+      "2+ anos de experiência",
+      "Python • Flask • JavaScript • React • MySQL"
     ],
     "cta": {
       "github": "Ver GitHub",
@@ -24,36 +24,35 @@
   },
   "about": {
     "kicker": "Sobre",
-    "title": "Desenvolvedor iOS‑first com base sólida em web",
-    "desc": "Desenvolvedor Full‑Stack e especialista iOS com <b>5+ anos</b> construindo apps, sites e integrações. Experiência com <b>times ágeis</b>, <b>pagamentos</b>, <b>SEO/UX</b> e colaboração multidisciplinar. Atuo principalmente no ecossistema Apple (Swift, SwiftUI, UIKit) e em stack moderna web (Next.js, React, TypeScript, Firebase).",
-    "qualsTitle": "Qualificações e pontos comportamentais",
+    "title": "Desenvolvedor focado em Python, Web e Automação",
+    "desc": "Sou um desenvolvedor de software com experiência na construção de aplicações web do back-end ao front-end. Tenho domínio em Python com Flask para desenvolvimento de APIs robustas e escaláveis, e utilizo JavaScript, React e Next.js para criar interfaces modernas e responsivas. Minha experiência inclui automação de processos corporativos com Power Apps e Power Automate, além de extração e manipulação de dados em Python. Com uma base sólida em Ciência da Computação, busco aplicar minhas habilidades técnicas e de automação em projetos inovadores que tragam impacto real.",
+    "qualsTitle": "Competências e pontos fortes",
     "quals": [
-      "Comunicação clara",
+      "Lógica e raciocínio crítico",
       "Ownership & pragmatismo",
-      "Foco em UX & qualidade",
-      "Parceria com Design/PM",
+      "Foco em UX e qualidade",
       "Aprendizado rápido & adaptável",
       "Entrega consistente",
       "Visão estratégica & planejamento",
-      "Resolução de problemas & pensamento crítico",
-      "Mindset & práticas ágeis"
+      "Resolução de problemas complexos",
+      "Mentalidade ágil e colaborativa"
     ],
     "eduTitle": "Educação",
     "edu": {
       "ucb": {
-        "title": "Bacharel em Ciência da Computação — UCB",
-        "period": "Jan 2019 – Jul 2025",
-        "desc": "Base sólida em computação, estruturas de dados, redes e engenharia de software."
+        "title": "Bacharelado em Ciência da Computação — UCB",
+        "period": "Concluído em Julho de 2024",
+        "desc": "Formação com foco em desenvolvimento de software, estruturas de dados, redes e engenharia de software. Inclui cursos adicionais em JavaScript e HTML."
       },
       "academy": {
-        "title": "Apple Developer Academy",
-        "period": "Mar 2021 – Dez 2022",
-        "desc": "Desenvolvimento para plataformas Apple: Swift, SwiftUI, UIKit; produto e publicação na App Store."
+        "title": "Programa EY Empodera",
+        "period": "Jan 2023 – Set 2023",
+        "desc": "Treinamentos em liderança, lógica de programação, inteligência emocional, finanças pessoais e gestão de marca."
       },
       "post": {
-        "title": "Pós‑graduação: Inovação & Transformação Digital — Gran College",
-        "period": "Jan 2023 – Set 2025",
-        "desc": "Estratégia digital, produto e negócios — unindo tecnologia com impacto real."
+        "title": "Cursos Alura — Front-end e Desenvolvimento Web",
+        "period": "2022 – 2024",
+        "desc": "Formação complementar com cursos práticos em HTML, CSS, JavaScript, TypeScript e React, focados em boas práticas de front-end e criação de aplicações web modernas."
       }
     }
   },
@@ -61,98 +60,52 @@
     "title": "Experiência",
     "items": {
       "creativePack": {
-        "role": "Desenvolvedor iOS - Contrato",
-        "company": "Creative Pack (Hapvida) - Remoto",
-        "period": "Jun 2022 – Jun 2023",
-        "headline": "Entreguei features de saúde que melhoraram o controle do paciente e o acompanhamento médico.",
+        "role": "Projetos Pessoais & Contribuições Open Source",
+        "company": "GitHub",
+        "period": "2021 – Atual",
+        "headline": "Desenvolvimento de aplicações web e projetos de automação publicados no GitHub.",
         "bullets": [
-          "Redesenhei jornadas com o time de Inovação, aumentando conclusão de fluxos críticos e reduzindo fricção.",
-          "Implementei prescrição digital e acompanhamento, tornando mais seguro o hand‑off entre pacientes e equipe médica."
+          "Criação de aplicações web full-stack utilizando Python, Flask, HTML e CSS.",
+          "Desenvolvimento de projetos de automação para manipulação de dados e integração de sistemas.",
+          "Publicação de repositórios open-source, aplicando boas práticas de versionamento com Git/GitHub."
         ],
-        "tech": [
-          "Swift",
-          "SwiftUI",
-          "UIKit",
-          "HealthKit",
-          "Combine",
-          "HIG",
-          "MVVM / MVVM-C",
-          "CocoaPods",
-          "Git",
-          "Ágil"
-        ]
+        "tech": ["Python", "Flask", "JavaScript", "React", "Git"]
       },
       "academy": {
-        "role": "Desenvolvedor de Aplicativos Apple - Capacitação Presencial",
-        "company": "Apple Developer Academy - Presencial",
-        "period": "Mar 2021 – Dez 2022",
-        "headline": "Criei e publiquei múltiplos apps (iPhone, iPad, watchOS, tvOS, macOS) com forte foco em produto e publicação.",
+        "role": "Desenvolvedor de Software",
+        "company": "ERNST & Young (EY)",
+        "period": "Jan 2023 – Set 2023",
+        "headline": "Desenvolvimento de aplicações em Python e na plataforma low-code PEGA, com participação em projetos internos da empresa.",
         "bullets": [
-          "Selecionado entre vagas limitadas; entregas fim‑a‑fim com visão de produto e iteração.",
-          "Apresentei demos e talks técnicas em PT/EN para equipe Apple e mentores.",
-          "Identifiquei problemas e propus soluções via CBL, desenvolvendo apps em equipe de 5 pessoas.",
-          "Publiquei apps na App Store, incluindo premiação no Swift Student Challenge."
+          "Criação e manutenção de aplicações utilizando Python e PEGA (low-code).",
+          "Participação em reuniões técnicas e de alinhamento com clientes.",
+          "Treinamentos em programação, inteligência emocional e práticas de colaboração."
         ],
-        "tech": [
-          "Swift",
-          "SwiftUI",
-          "UIKit",
-          "Xcode",
-          "App Store",
-          "Combine",
-          "RxSwift",
-          "HIG",
-          "Testes de Unidade",
-          "MVVM / MVVM-C",
-          "VIP / VIPER",
-          "CocoaPods",
-          "Git",
-          "Ágil",
-          "CBL",
-          "Design Thinking",
-          "Acessibilidade",
-          "Localização",
-          "TestFlight",
-          "CoreData",
-          "CoreLocation",
-          "MapKit",
-          "HealthKit",
-          "CoreML"
-        ]
+        "tech": ["Python", "PEGA (low-code)", "Git"]
       },
       "thifi": {
-        "role": "Gestor & Desenvolvedor Full‑Stack",
-        "company": "ThiFi",
-        "period": "Jan 2025 – Presente",
-        "headline": "Liderei entrega de sites corporativos, e‑commerce e dashboards. Unindo tecnologia, design e marketing estratégico.",
+        "role": "Estagiário de TI",
+        "company": "Ministério das Relações Exteriores",
+        "period": "Ago 2022 – Jan 2023",
+        "headline": "Modernização de fluxos de trabalho com automação de dados e criação de aplicações internas.",
         "bullets": [
-          "Criei sites SEO‑friendly e dashboards internos usando sistema de componentes reutilizáveis.",
-          "Integrei Google Maps, Instagram e WhatsApp Business; implementei Mercado Pago Transparent Checkout.",
-          "Entreguei e‑commerce e web apps com Next.js, React, Tailwind CSS e Firebase.",
-          "Gerenciei time de 3 devs, garantindo qualidade e prazos.",
-          "Implementei analytics e tracking para insights de performance.",
-          "Coordenei times multidisciplinares com metodologias ágeis."
+          "Desenvolvimento de aplicações em Power Apps para coleta de dados de polos globais.",
+          "Implementação de automações com Power Automate para extração e armazenamento de dados.",
+          "Uso de Python para processar informações de PDFs de transações bancárias."
         ],
-        "tech": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind",
-          "Firebase",
-          "Mercado Pago",
-          "Google Maps",
-          "API",
-          "SEO",
-          "Analytics",
-          "Ágil"
-        ]
+        "tech": ["Python", "Power Apps", "Power Automate"]
       }
     }
   },
   "projects": {
     "title": "Projetos",
     "filter": "Filtro:",
-    "tabs": { "all": "Todos", "ios": "iOS", "web": "Web" },
+    "tabs": {
+      "all": "Todos",
+      "web": "Web",
+      "automation": "Automação",
+      "games": "Jogos"
+    },
     "actions": {
       "web": "Web →",
       "hideLinks": "Ocultar Links",
@@ -161,89 +114,136 @@
       "github": "GitHub →"
     },
     "tagLabels": {
-      "Games": "Jogos",
+      "automation": "Automação",
+      "data-extraction": "Extração de Dados",
+      "web": "Web",
+      "fullstack": "Full-Stack",
+      "games": "Jogos",
       "Health": "Saúde",
       "Maps": "Mapas",
       "Business": "Negócios",
-      "Education": "Educação"
+      "Education": "Educação",
+      "Portfolio": "Portfólio",
+      "DataScience": "Ciência de Dados",
+      "ML": "Machine Learning",
+      "CRUD": "CRUD"
     },
     "items": {
       "hybris": {
-        "summary": "Jogo casual de terror para iPhone focado em atmosfera e integração com GameCenter.",
+        "summary": "Sistema de automação de fluxo de dados, focado em extração e armazenamento de informações.",
         "details": [
-          "Loop de feedback imersivo com dificuldade adaptativa.",
-          "Ranking e conquistas via GameCenter."
+          "Extração de dados de PDFs de transações bancárias com Python.",
+          "Automação do processo de armazenamento de dados com Power Automate."
         ]
       },
       "stretch-quest": {
-        "summary": "App de postura e flexibilidade com progressão estilo RPG e animações.",
+        "summary": "Aplicações internas para coleta e centralização de informações de diferentes polos.",
         "details": [
-          "Rotina gamificada com streaks e níveis desbloqueáveis.",
-          "Sistema de animações custom e hápticos."
+          "Desenvolvimento de interfaces com Power Apps para entrada de dados.",
+          "Automação de rotinas administrativas e integração de sistemas."
         ]
       },
       "iss-tracker": {
-        "summary": "Acompanhe a ISS em tempo real no mapa usando frameworks Apple e POP.",
+        "summary": "Template de aplicação web com Flask e front-end HTML/CSS para projetos dinâmicos.",
         "details": [
-          "Polling de posição e anotações no mapa.",
-          "Permissões de localização e updates em background."
+          "Estrutura modular para desenvolvimento de aplicações web.",
+          "Aplicação de boas práticas em back-end e front-end."
         ]
       },
       "wwdc22-ssc": {
-        "summary": "Experiência interativa no Swift Playgrounds enviada ao Swift Student Challenge.",
+        "summary": "Projeto simples de jogo web para explorar lógica e conceitos de desenvolvimento.",
         "details": [
-          "Conteúdo educacional com padrões de interação.",
-          "Foco em acessibilidade e linguagem visual clara."
+          "Implementação de mecânica de jogo com JavaScript.",
+          "Criação de interface responsiva com HTML e CSS."
         ]
       },
       "genika": {
-        "summary": "Companion de Apple Watch + HealthKit para visualizar rotina e equilíbrio de saúde.",
+        "summary": "Plataforma web para organização e exibição de conteúdos dinâmicos.",
         "details": [
-          "Ingestão de dados do HealthKit e armazenamento com privacidade.",
-          "Sync via CloudKit e interações mínimas no Watch."
+          "Desenvolvimento de front-end com React e TypeScript.",
+          "Integração com APIs externas para consumo de dados."
         ]
       },
       "dizcarta": {
-        "summary": "Jogo de cartas cooperativo que incentiva a socialização entre jovens.",
+        "summary": "Aplicação voltada para comunicação estruturada e gestão de informações.",
         "details": [
-          "Offline‑first com CoreData.",
-          "Balanceamento do jogo e UX para sessões em grupo."
+          "Implementação de back-end em Python/Flask.",
+          "Criação de interface intuitiva em HTML e CSS."
         ]
       },
       "beauty-platform": {
-        "summary": "Plataforma Next.js para salões/barbearias com catálogo, galeria do IG, agendamento via WhatsApp e checkout Mercado Pago.",
+        "summary": "Plataforma digital para gerenciamento de salões de beleza e barbearias.",
         "details": [
-          "Functions serverless para agendamento + notificações.",
-          "Páginas prontas para SEO e ingestão de mídia do IG."
+          "Desenvolvimento de sistema para agendamento e gestão de clientes.",
+          "Integração com WhatsApp para notificações automáticas."
         ]
       },
       "falaubs": {
-        "summary": "App web Django para unidades de saúde com busca inteligente de vacinas e agendamento.",
+        "summary": "Aplicação voltada para comunicação com foco em estudantes universitários.",
         "details": [
-          "Busca otimizada para contextos de baixa letrabilidade.",
-          "Admin e importação CSV para agendas."
+          "Desenvolvimento de funcionalidades de chat e compartilhamento de conteúdo.",
+          "Integração com banco de dados para persistência de informações."
         ]
       },
       "websites": {
-        "summary": "Coleção de sites responsivos para múltiplos clientes com forte SEO e performance.",
+        "summary": "Coleção de websites desenvolvidos com foco em design responsivo e boas práticas.",
         "details": [
-          "Biblioteca de componentes reutilizáveis e theming.",
-          "Analytics + melhores práticas de SEO on‑page."
+          "Criação de páginas institucionais e portfólios.",
+          "Uso de HTML, CSS e JavaScript para interfaces rápidas e acessíveis."
+        ]
+      },
+      "acidentes-2020": {
+        "summary": "Descrição resumida sobre o projeto de análise de acidentes de 2020.",
+        "details": [
+          "Análise exploratória de dados de acidentes rodoviários.",
+          "Visualização de dados com Matplotlib e Seaborn."
+        ]
+      },
+      "crisp-acidentes": {
+        "summary": "Projeto de mineração de dados seguindo a metodologia CRISP-DM para acidentes.",
+        "details": [
+          "Aplicação das fases do CRISP-DM: Entendimento do Negócio, Entendimento dos Dados, etc.",
+          "Criação de modelos preditivos para identificar fatores de risco."
+        ]
+      },
+      "jogoteca": {
+        "summary": "Aplicação web para catalogar e gerenciar uma coleção de jogos.",
+        "details": [
+          "Desenvolvido com Flask, um microframework Python.",
+          "Sistema de autenticação de usuários e operações CRUD (Criar, Ler, Atualizar, Deletar)."
+        ]
+      },
+      "site-thifi": {
+        "summary": "Website institucional ou portfólio desenvolvido para a marca Thifi.",
+        "details": [
+          "Front-end construído com HTML, CSS e JavaScript.",
+          "Design responsivo para adaptação em múltiplos dispositivos."
+        ]
+      },
+      "wl-salao-barbearia": {
+        "summary": "Sistema de agendamento e gestão para um salão de beleza e barbearia.",
+        "details": [
+          "Desenvolvido com React para o front-end e Firebase como backend.",
+          "Funcionalidades de agendamento, cadastro de clientes e serviços."
+        ]
+      },
+      "portfolio-html": {
+        "summary": "Versão anterior do portfólio pessoal, desenvolvida puramente com HTML e CSS.",
+        "details": [
+          "Projeto focado em semântica HTML e estilização com CSS moderno.",
+          "Demonstração de habilidades fundamentais de desenvolvimento web."
         ]
       }
     }
   },
   "contact": {
     "title": "Vamos trabalhar juntos",
-    "desc": "Aberto a vagas iOS remotas (EUA) e trabalhos full‑stack. Disponível para entrevistas, contratos e code reviews. Falo EN/PT e posso me mudar para os EUA. Disponível de forma integral ou meio período.",
+    "desc": "Aberto a novas oportunidades como Desenvolvedor Full Stack Júnior. Interesse em posições com foco em Python, JavaScript e automação, com disponibilidade para atuar em Brasília/DF ou remotamente. Inglês intermediário.",
     "chips": [
-      "Aberto a remoto nos EUA",
-      "GMT‑3 / UTC-3",
-      "English / Português",
-      "Developer",
-      "iOS",
-      "Web",
-      "App"
+      "Brasília / DF",
+      "Disponível para viagens",
+      "Português • Inglês Intermediário",
+      "Aberto a trabalho no exterior"
     ],
     "buttons": {
       "email": "Email",

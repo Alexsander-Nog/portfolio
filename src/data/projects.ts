@@ -1,144 +1,125 @@
 // src/data/projects.ts
-export type ProjectType = "All" | "iOS" | "Web";
+export type ProjectType = "All" | "Python" | "Web";
+
 export type Project = {
   id: string;
   title: string;
   type: ProjectType;
   summary: string;
   stack: string[];
-  tags?: string[]; // Games, Health, Maps, Business, Education, etc.
-  featured?: string; // e.g. "Swift Student Challenge • 2022"
-  details?: string[]; // bullets shown on “More”
+  tags?: (typeof allTags)[number][]; // garante consistência com allTags
+  featured?: string;
+  details?: string[];
   links: {
     github?: string;
-    websites?: string[]; // multiple websites for web projects
+    websites?: string[];
   };
 };
 
-export const allTags = ["Games", "Health", "Maps", "Business", "Education"] as const;
+// use apenas tags que você realmente quer filtrar no UI
+export const allTags = ["DataScience", "ML", "CRUD", "Business", "Portfolio", "Education"] as const;
 
 export const projects: Project[] = [
   {
-    id: "hybris",
-    title: "Hybris",
-    type: "iOS",
-    summary: "Casual horror‑themed iPhone game focused on atmosphere and GameCenter integration.",
-    stack: ["Swift", "UIKit", "GameKit", "GameCenter"],
-    tags: ["Games"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/hybris" },
+    id: "acidentes-2020",
+    title: "Acidentes 2020 — Análise & Predição",
+    type: "Python",
+    summary:
+      "Exploração de dados de acidentes (2020) nas BR-020/070 (DF) com protótipos de modelagem para prever fatalidades. Foco em entendimento do dado e baseline de ML.",
+    stack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "scikit-learn", "Jupyter"],
+    tags: ["DataScience", "ML", "Education"],
+    links: { github: "https://github.com/AlexsanderTG/Acidentes-2020-predic-Python-" },
     details: [
-      "Immersive feedback loop with adaptive difficulty.",
-      "Leaderboard and achievements via GameCenter.",
+      "Higienização e padronização de colunas; tratamento de valores ausentes e inconsistências.",
+      "Engenharia de atributos de tempo/local (ex.: hora do dia, dia da semana, trechos BR-020/070).",
+      "Análise exploratória com distribuição de variáveis, correlações e identificação de outliers.",
+      "Protótipos de modelos supervisionados (regressão/classificação) para risco de óbito.",
+      "Validação simples e discussão de limitações/dados necessários para produção.",
     ],
   },
   {
-    id: "stretch-quest",
-    title: "Stretch Quest",
-    type: "iOS",
-    summary: "Posture and flexibility app with RPG‑like progression and animations.",
-    stack: ["SwiftUI", "UIKit"],
-    tags: ["Health"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/stretch-quest" },
+    id: "crisp-acidentes",
+    title: "Projeto CRISP-DM — Acidentes",
+    type: "Python",
+    summary:
+      "Estudo guiado pelo processo CRISP-DM — da compreensão do negócio à avaliação — aplicado a dados de acidentes. Pipeline reprodutível em notebook.",
+    stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
+    tags: ["DataScience", "Education"],
+    links: { github: "https://github.com/AlexsanderTG/Projeto-CRISP-acidentes-com-Python" },
     details: [
-      "Gamified routine with streaks and unlockable levels.",
-      "Custom animation system and haptics.",
+      "Documentação das fases CRISP-DM: Business/Data Understanding, Preparation, Modeling e Evaluation.",
+      "Limpeza, tipagem e enriquecimento de atributos para melhorar a qualidade do dataset.",
+      "EDA com gráficos comparativos e análise de padrões temporais/espaciais.",
+      "Seleção de variáveis e teste de modelos de baseline para viabilidade.",
+      "Reflexões sobre métricas, viés de amostragem e próximos passos.",
     ],
   },
   {
-    id: "iss-tracker",
-    title: "ISS Tracker",
-    type: "iOS",
-    summary: "Track the ISS in real time on a map using Apple frameworks and POP.",
-    stack: ["Swift", "CoreLocation", "MapKit"],
-    tags: ["Maps", "Education"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/iss-tracker" },
-    details: [
-      "Live position polling and map annotations.",
-      "Location permissions and background updates.",
-    ],
-  },
-  {
-    id: "wwdc22-ssc",
-    title: "WWDC22 SSC",
-    type: "iOS",
-    summary: "Interactive Swift Playgrounds experience submitted to the Swift Student Challenge.",
-    stack: ["Swift", "Playgrounds", "UIKit"],
-    tags: ["Education"],
-    featured: "Swift Student Challenge • 2022",
-    links: {
-      github: "https://github.com/DouglasiOSDeveloper/wwdc22-ssc",
-      websites: ["https://www.wwdcscholars.com/s/1FECEDDF-94B5-47FB-8D0D-6585A95470A0/2022"],
-    },
-    details: [
-      "Education‑oriented content with interaction patterns.",
-      "Focus on accessibility and clear visual language.",
-    ],
-  },
-  {
-    id: "genika",
-    title: "Genika",
-    type: "iOS",
-    summary: "Apple Watch + HealthKit companion to visualize routine and health balance.",
-    stack: ["SwiftUI", "WatchKit", "HealthKit", "CloudKit"],
-    tags: ["Health"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/genika" },
-    details: [
-      "HealthKit data ingestion and privacy‑aware storage.",
-      "CloudKit sync and minimal Watch interactions.",
-    ],
-  },
-  {
-    id: "dizcarta",
-    title: "Dizcarta",
-    type: "iOS",
-    summary: "Co‑op card‑based game encouraging socialization among young people.",
-    stack: ["SwiftUI", "CoreData", "DocC"],
-    tags: ["Games", "Education"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/dizcarta" },
-    details: ["Offline‑first with CoreData.", "Game balancing and UX for group sessions."],
-  },
-  {
-    id: "beauty-platform",
-    title: "White‑Label Beauty Platform",
+    id: "jogoteca",
+    title: "Jogoteca (Flask + MySQL)",
     type: "Web",
     summary:
-      "Next.js platform for salons/barbershops with catalog, IG gallery, WhatsApp bookings and Mercado Pago checkout.",
-    stack: ["Next.js", "Tailwind", "Firebase", "Mercado Pago"],
+      "Aplicação web CRUD de jogos com Flask, persistência em MySQL e templates Jinja. Exercício completo de back-to-front com autenticação simples.",
+    stack: ["Flask", "Python", "MySQL", "Jinja2", "HTML", "CSS", "JavaScript"],
+    tags: ["CRUD", "Business", "Education"],
+    links: { github: "https://github.com/AlexsanderTG/Jogoteca-python-flask" },
+    details: [
+      "Arquitetura organizada por camadas (models, views, helpers) e scripts de preparo do banco.",
+      "CRUD de jogos com formulários, validação básica e feedback de erros.",
+      "Sessão e login simples para proteger rotas de criação/edição.",
+      "Templates Jinja com herança (layout base) e partials reutilizáveis.",
+      "Boas práticas iniciais de organização de projeto Flask.",
+    ],
+  },
+  {
+    id: "site-thifi",
+    title: "Thifi — Site Institucional (Next.js)",
+    type: "Web",
+    summary:
+      "Website institucional da Thifi com Next.js e Tailwind. Foco em páginas de marketing, desempenho e estrutura pronta para deploy.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel/GitHub Pages"],
+    tags: ["Business", "Portfolio"],
+    links: {
+      github: "https://github.com/AgenciaThifi/agenciathifi.github.io",
+      websites: ["https://agenciathifi.github.io"],
+    },
+    details: [
+      "Estrutura com App Router, componentes reutilizáveis e design responsivo.",
+      "Head/meta tags e semântica HTML para SEO on-page básico.",
+      "Pipeline simples de build e publicação (Vercel ou GitHub Pages).",
+      "Organização de conteúdo para apresentação de serviços/portfólio.",
+    ],
+  },
+  {
+    id: "wl-salao-barbearia",
+    title: "Plataforma White-Label para Salão/Barbearia",
+    type: "Web",
+    summary:
+      "Base Next.js em TypeScript para sites de salões/barbearias. Estrutura modular para catálogo, páginas institucionais e integrações server-side.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
     tags: ["Business"],
     links: { github: "https://github.com/AgenciaThifi/wl_salao_barbearia" },
     details: [
-      "Serverless functions for booking + notifications.",
-      "SEO‑ready pages and IG media ingestion.",
+      "Projeto bootstrapado com create-next-app e configuração de lint/TS pronta.",
+      "Diretório `app/` com rotas e componentes desacoplados para reuso em múltiplos clientes.",
+      "Assets públicos e convenções de organização para branding white-label.",
+      "Integrações server-side via service account (ex.: automações/admin APIs).",
+      "Pronto para CI/CD e deploy em plataformas como Vercel.",
     ],
   },
   {
-    id: "falaubs",
-    title: "FalaUBS",
-    type: "Web",
-    summary: "Django web app for public health units with smart vaccine search and booking.",
-    stack: ["Django", "HTML", "JS"],
-    tags: ["Health", "Business"],
-    links: { github: "https://github.com/DouglasiOSDeveloper/falaubs" },
-    details: [
-      "Search flow optimized for low‑literacy contexts.",
-      "Admin panel and CSV import for schedules.",
-    ],
-  },
-  {
-    id: "websites",
-    title: "Corporate & Institutional Websites",
+    id: "portfolio-html",
+    title: "PortfolioHTML (Estático)",
     type: "Web",
     summary:
-      "A collection of responsive websites delivered for multiple clients with strong SEO and performance.",
-    stack: ["Next.js", "React", "TypeScript", "Tailwind"],
-    tags: ["Business"],
-    links: {
-      websites: [
-        "https://odontotubarao.com.br/",
-        "https://violet-leopard-139615.hostingersite.com/",
-        "https://darkslateblue-goat-822240.hostingersite.com/",
-      ],
-    },
-    details: ["Reusable component library and theming.", "Analytics + on‑page SEO best practices."],
+      "Portfólio estático em HTML com ícones SVG. Alternativa leve, sem build, para páginas de apresentação.",
+    stack: ["HTML", "SVG", "CSS"],
+    tags: ["Portfolio"],
+    links: { github: "https://github.com/AlexsanderTG/PortfolioHTML" },
+    details: [
+      "Estrutura semântica e navegação simples para seções do portfólio.",
+      "Uso de SVGs otimizados para ícones/ilustrações.",
+      "Base ideal para evoluir com CSS/JS ou migrar para framework.",
+    ],
   },
 ];

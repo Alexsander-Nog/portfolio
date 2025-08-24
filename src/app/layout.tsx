@@ -1,15 +1,16 @@
 // src/app/layout.tsx
 import "./globals.css";
+import React from "react";
 
 export const metadata = {
-  title: "Douglas Figueirôa – iOS & Full‑Stack Developer",
+  title: "Alexsander Nogueira De Jesus – Desenvolvedor de Software",
   description:
-    "iOS & Full‑Stack Developer crafting fast, clean apps and web experiences. Swift, SwiftUI, UIKit, Next.js, React, Firebase.",
+    "Desenvolvedor de Software com experiência em Python, Flask, HTML, Power Apps, C, Java, e MySQL. Construo aplicações web e soluções de automação.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

@@ -25,10 +25,12 @@ export function Experience() {
   }));
 
   return (
-    <section id="experience" className="border-border relative overflow-hidden border-t">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_10%_-10%,oklch(0.67_0.13_320/.12),transparent_60%),radial-gradient(900px_500px_at_90%_-20%,oklch(0.65_0.12_250/.10),transparent_55%)]" />
+    <section id="experience" className="relative overflow-hidden border-t border-[#8B0000]/40">
+      {/* Fundo com chumbo e leves efeitos */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a]" />
+
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <h2 className="text-2xl font-semibold">{t("title")}</h2>
+        <h2 className="text-2xl font-semibold text-[#e0c097]">{t("title")}</h2>
 
         <div className="mt-8 grid gap-6">
           {items.map((item, i) => (
@@ -68,25 +70,25 @@ function ExperienceItem({
   return (
     <article
       className={cn(
-        "exp-card border-foreground/10 bg-foreground/[0.03] rounded-2xl border p-5 md:p-6",
+        "rounded-2xl border border-[#8B0000]/50 bg-[#2a2a2a]/80 p-5 shadow-md shadow-black/40 transition hover:border-[#a52a2a] hover:shadow-lg hover:shadow-[#8B0000]/30 md:p-6",
         className
       )}
     >
       <header className="grid gap-2 md:grid-cols-[1fr_auto] md:items-start">
         <div>
-          <h3 className="text-lg leading-tight font-semibold">
-            {role} <span className="text-foreground/70">— {company}</span>
+          <h3 className="text-lg leading-tight font-semibold text-[#f5f5f5]">
+            {role} <span className="text-[#e0c097]/80">— {company}</span>
           </h3>
-          <p className="text-foreground/75 mt-1 text-sm">{headline}</p>
+          <p className="mt-1 text-sm text-[#f5f5f5]/80">{headline}</p>
         </div>
-        <time className="text-foreground/60 text-xs whitespace-nowrap md:pl-6" aria-label="Period">
+        <time className="text-xs whitespace-nowrap text-[#e0c097]/70 md:pl-6" aria-label="Period">
           {period}
         </time>
       </header>
 
       <ul className="mt-4 space-y-2">
         {bullets.map((b, idx) => (
-          <li key={idx} className="li-dot text-foreground/85 text-sm">
+          <li key={idx} className="li-dot text-sm text-[#f5f5f5]/90">
             {b}
           </li>
         ))}
@@ -95,7 +97,10 @@ function ExperienceItem({
       {!!tech?.length && (
         <div className="mt-4 flex flex-wrap gap-2">
           {tech.map((t) => (
-            <span key={t} className="chip border-pink-400/30 text-[11px] text-pink-400">
+            <span
+              key={t}
+              className="chip rounded-full border border-[#e0c097]/40 bg-[#1a1a1a] px-2 py-1 text-[11px] text-[#e0c097] shadow-sm shadow-black/30"
+            >
               {t}
             </span>
           ))}

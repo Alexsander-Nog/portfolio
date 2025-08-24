@@ -8,18 +8,24 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
+// Obtém o tipo do array `allTags` e o junta com "All" para o estado.
+// Isso garante que o tipo do estado activeTag seja sempre válido.
+type AllTagsType = (typeof allTags)[number] | "All";
+
 // Definindo os tipos de tabs para 'All' e 'Web'.
 const typeTabs: ProjectType[] = ["All", "Web"];
 
 export function Projects() {
   const t = useTranslations("projects");
   const [type, setType] = useState<"All" | ProjectType>("All");
-  const [activeTag, setActiveTag] = useState<string | "All">("All");
+  // CORREÇÃO: O tipo do useState agora é AllTagsType
+  const [activeTag, setActiveTag] = useState<AllTagsType>("All");
   const [openLinks, setOpenLinks] = useState<Record<string, boolean>>({});
   const [openDetails, setOpenDetails] = useState<Record<string, boolean>>({});
 
   const items = useMemo(() => {
     let list = type === "All" ? data : data.filter((p) => p.type === type);
+    // A validação agora é feita com um tipo correto
     if (activeTag !== "All") list = list.filter((p) => p.tags?.includes(activeTag));
     return list;
   }, [type, activeTag]);
